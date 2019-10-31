@@ -1,0 +1,63 @@
+
+**************
+TODO MORNING,
+
+MAKE VIEW PAGER, IMPLEMENT webview fragment and images
+Do examples for week 6
+Review LBS and Data Binding Code
+
+**************
+
+Kotlin vs Java
+- Kotlin devloped by jetbrains in 2011
+- since 2017 can write android apps partially or entirely in kotlin
+- statically typed (variables need not be defined to be used), interoperable with java
+- can use all existing java frameworks and libraries
+- null-pointer safety
+
+- val for constants, var for variables, datatype ususally not neccesary
+- can define types with var x: String
+- all types are objects
+- string with multiple lines uses triple quotes
+
+kotlin function: fun double(x: Int): { return 2 * x }
+- If kotlin has a potential null-pointer exception, will fail at compile time
+
+in build.gradle (module level) add lines:
+	apply plugin: 'kotlin-android'
+	apply plugin: 'kotlin-android-extensions'
+	(THEN SYNC)
+
+
+Advantages of Fragments:
+1) Form Factor Differences (can have specific fragments for diff form factors handled by activity)
+2) User Interface organization
+3) advanced ui metaphors
+4) passing info between screens
+
+- If fragment stack is not empty, pressing back will navigate to latest fragment in the same activity
+
+for fragment
+1) extend fragment class from native or support library
+2) create a a layout for the fragment
+3) override onCreateView(), inflate the view for the fragment
+4) use the fragment in activity layout (or dynamically add through fragment manager)
+
+must use fragmentactivity or appcompatactivity if using support fragment libary
+
+pull based scenarios let user determine the interaction
+push based scenarios let service promt the user
+
+spacial term - latitude, longitude, altitude
+text description (LBS) - street address, postal code, city, ect
+
+
+Android jepack: contains databinding library (and other features)
+Enable dataBinding in the android {...} section of the module level build.gradle (dataBinding {enabled true})
+	-> file -> sync project with gradle files
+
+-> wrap your activity layout in a <layout></> tag and cut out the namespaces from the activity layout and paste into it
+	 -> add variable to the activity -> private lateinit var binding: ActivityMainBinding
+	 -> replace setContentView() with binding = DatabindingUtil.setContentView(this, R.layout.activity_main)
+
+
